@@ -1,0 +1,353 @@
+body {
+    font-family: sans-serif;
+}
+
+.logo-img {
+    text-align: left;
+    padding:0px 100px;
+}
+
+.menu {
+    padding:20px 100px;
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+}
+
+.main-cover {
+    text-align: center;
+    padding: 6rem 90px;
+    box-shadow: 5px 5px 26px #121212;
+    border-radius: 16px;
+    margin: 0 92px;
+    border-top-right-radius:0px;
+    border-top-left-radius:0px;
+    box-shadow: 0px 19px 37px 0px #7c7979;
+}
+
+.main-heading {
+    font-size: 60px;
+color: #2611c8;
+}
+
+.main-heading-paragraph {
+    font-size: 26px;
+}
+
+.explore-services {
+    background-color:#fff; 
+    width: 250px;
+    height: 60px;
+    border-style: none;
+    cursor: pointer;
+}
+
+
+
+.explore-services:hover {
+    background-color: #66dbd3;
+    border-radius: 9px;
+       width: 250px;
+    height: 60px;
+    color: #fff;
+}
+
+.explore-services:focus {
+    background-color: #66dbd3;
+    border-radius: 9px;
+       width: 250px;
+    height: 60px;
+    color: #fff;
+}
+
+.explore-services:active{
+    background-color: #66dbd3;
+    border-radius: 9px;
+       width: 250px;
+    height: 60px;
+    color: #fff;
+}
+
+.explore-services.active {
+background-color: #66dbd3;
+color: #fff;
+border-color: #66dbd3;
+border-radius: 9px;
+}
+
+
+
+.our-services {
+    text-align: center;
+    color: #2611c8;
+    margin: 80px 0;
+}
+
+.our-offerings {
+    display: flex;
+    padding-top: 50px;
+
+}
+
+.services {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.product-showcase {
+    display: inline-flex;
+    padding:100px 0;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.get-consultation {
+     background-color:#2611c8; 
+     color: #fff;
+    width: 250px;
+    height: 60px;
+    border-radius: 9px;
+    border-style: none;
+    cursor: pointer;
+}
+
+.elevate-business {
+    background-color: #2611c8;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+footer {
+    text-align: center;
+    color: #7e7e7f;
+}
+
+.logo-img {
+    width: 63px;
+}
+
+.heading {
+    color: #2611c8;
+}
+
+.robot-img {
+ width: 90px;
+}
+
+.icon-light-bulb {
+width: 90px;
+}
+
+.contact-us {
+        background-color: #66dbd3;
+    border-radius: 9px;
+       width: 250px;
+    height: 60px;
+    border-style: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.ai-image {
+    width: 90px;
+    height: 90px;
+}
+
+.link {
+    color:#66dbd3;
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: underline;
+}
+
+.nav-link {
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+.nav-link:hover {
+    background-color:#e9e9ec;
+    color: #000;
+}
+
+.nav-link.active {
+    background-color: #66dbd3;
+    color: #fff;
+    font-weight: bold;
+}
+
+.city-image {
+    border-radius: 20px;
+    width: 600px;
+}
+
+.city-div {
+    width: 600px;
+}
+
+.chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #66dbd3;
+    color: #fff;
+    border:none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.chat-toggle:hover {
+    background-color: #66dbd382;
+}
+
+.chat-ai {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 340px;
+    height: 450px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 999;
+    flex-direction: column;
+    overflow: hidden;
+
+}
+
+.chat-ai.open{
+    display:flex;
+}
+
+.chat-header {
+    background-color:#66dbd3;
+    color: #fff;
+    padding: 12px 15px;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-min {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.chat-container {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #7e7e7f;
+    border-bottom: 1px solid #eee;
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+}
+
+#chat-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+#chat-send-button {
+    padding: 10px 18px;
+    background-color: #7c7979;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+#chat-send-button:hover {
+    background-color:#66dbd3; 
+}
+
+.chat-message {
+    padding: 8px 12px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+    clear:both;
+}
+
+.user-message {
+    background-color:#2611c8;
+    color: #fff;
+    float:right;
+    border-bottom-right-radius: 5px;
+}
+
+#chat-icon-open {
+    width: 26px;
+    height: 26px;
+}
+
+#chat-icon-close {
+    width: 26px;
+    height: 26px;
+}
+
+.bot-message {
+    background-color: #e9e9ec;
+    color: #333;
+    float: left;
+    border-bottom-left-radius: 5px;
+}
+
+.loading-dots span { 
+    display: inline-block;
+    animation: blink 1.4s infinite both;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0% { opacity: 0.2; }
+    20% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
