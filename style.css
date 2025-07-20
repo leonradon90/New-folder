@@ -346,8 +346,33 @@ width: 90px;
     animation-delay: 0.4s;
 }
 
+.benefits {
+    margin: 80px 0;
+}
+
+.results {
+    text-align: center;
+    color: #2611c8;
+}
+
+.results-showcase {
+padding: 30px;
+margin: 20px 20px;
+box-shadow: 5px 5px 26px #121212;
+display: flex; 
+width:360px;
+border-radius: 10px;
+}
+
+.results-show {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 @keyframes blink {
     0% { opacity: 0.2; }
     20% { opacity: 1; }
     100% { opacity: 0.2; }
 }
+
