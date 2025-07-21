@@ -348,6 +348,7 @@ width: 90px;
 
 .benefits {
     margin: 80px 0;
+    text-align: center;
 }
 
 .results {
@@ -368,6 +369,20 @@ border-radius: 10px;
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.pricing h1 {
+color:#2611c8;
+text-align: center;
+}
+
+.pricing p{
+    color:#7c7979;
+}
+
+.benefits-text {
+    text-align: center;
+    margin:0 92px;
 }
 
 @keyframes blink {
