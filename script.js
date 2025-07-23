@@ -2,6 +2,32 @@
 /* JavaScript for adding the OpenAI API key and get answers from OpenAI */
 
 document.addEventListener('DOMContentLoaded', function(){
+
+    // --- Navigation & Button Active State Logic ---
+    const navLinks = document.querySelectorAll('a.nav-link');
+    const currentPath = window.location.pathname;
+
+    // Set active class for naviation links
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+
+        if((currentPath === '/' || currentPath.endsWith('/index.html'))&& (linkPath === 'index.html' || linkPath === '/')){
+            link.classList.add('active');            
+        } else if(linkPath !== 'index.html' && linkPath !== '/' && currentPath.endsWith(linkPath)){
+            link.classList.add('active');
+        }
+    });
+
+        const ctaButtons = document.querySelectorAll('.explore-services');
+
+        ctaButtons.forEach(button => {
+            button.addEventListener('click', function(){
+                ctaButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
     const chatToggleButton = document.getElementById('chat-toggle-button');
     const chatWindow = document.getElementById('chat-window');
     const closeChatWindowButton = document.getElementById('close-chat-window-button');
@@ -66,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     chatMessagesContainer.appendChild(messageDiv);
 
                     chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
+                    return messageDiv;
                     }
                     
                     async function handleSendMessage() {
@@ -82,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         chatInput.value = '';
 
                         conversationHistory.push ({role: 'user', content: userInput});
-                        addMessageToChat('assistant', '', true);
+                     const loadingMessageDiv =   addMessageToChat('assistant', '', true);
 
                         try {
                             const response = await fetch(OPEN_API_URL,
@@ -102,10 +129,9 @@ document.addEventListener('DOMContentLoaded', function(){
                                     }),
                                 });
 
-                                const loadingMessageDiv = chatMessagesContainer.querySelector('.bot-message.loading-dots');
-                                    if (loadingMessageDiv && loadingMessageDiv.parentElement) {
-                                        loadingMessageDiv.parentElement.remove();
-                                    }
+                                if(loadingMessageDiv){
+                                    loadingMessageDiv.remove();
+                                }
                                     if(!response.ok){
                                         const errorData = await response.json().catch(()=>({error:{ message: 'Filed to parse error from OpenAI API'}}));
 
@@ -126,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                         conversationHistory.push({
                                             role:'assistant', content: assistantResponse });
                                     } else {
-                                        addMessageToChat('assistnat', 'Sorry, I received an unexpected resposne from OpenAI.');
+                                        addMessageToChat('assistant', 'Sorry, I received an unexpected resposne from OpenAI.');
 
                                     } 
                         } catch (error) {
@@ -165,32 +191,3 @@ document.addEventListener('DOMContentLoaded', function(){
                      
     
 });
-/* Add navigation script for changing of buttons colors */
-        document.addEventListener('DOMContentLoaded', function() {
-
-        const navLinks = document.querySelectorAll('a.nav-link');
-        
-        const currentPath = window.location.pathname;
-
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href');
-
-            if(currentPath.endsWith('/' + linkPath) || (currentPath === '/' && linkPath === 'index.html')){
-                link.classList.add('active');
-            }
-        });
-    });
-
-
-    /*  */
-
-    const ctaButtons = document.querySelectorAll('.explore-services');
-
-    ctaButtons.forEach(button => {
-        button.addEventListener('click', function(){
-            ctaButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            this.classList.add('active');
-        });
-    });

@@ -20,8 +20,6 @@ body {
     box-shadow: 5px 5px 26px #121212;
     border-radius: 16px;
     margin: 0 92px;
-    border-top-right-radius:0px;
-    border-top-left-radius:0px;
     box-shadow: 0px 19px 37px 0px #7c7979;
 }
 
@@ -117,6 +115,9 @@ border-radius: 9px;
     color: #fff;
     text-align: center;
     padding: 100px 0;
+    box-shadow: none;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px
 }
 
 footer {
@@ -265,7 +266,7 @@ width: 90px;
     flex-grow: 1;
     padding: 10px;
     overflow-y: auto;
-    background-color: #7e7e7f;
+    background-color: #fff;
     border-bottom: 1px solid #eee;
 }
 
@@ -371,18 +372,31 @@ border-radius: 10px;
     justify-content: center;
 }
 
+.results-consultation {
+    margin: 10px 0;
+}
+
 .pricing h1 {
 color:#2611c8;
 text-align: center;
+margin-top: 0;
 }
 
 .pricing p{
     color:#7c7979;
+    font-size: 18px;
+}
+
+.pricing {
+
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+
 }
 
 .benefits-text {
     text-align: center;
-    margin:0 92px;
+    margin:20px 92px;
 }
 
 @keyframes blink {
