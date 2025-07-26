@@ -5,17 +5,19 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // --- Navigation & Button Active State Logic ---
     const navLinks = document.querySelectorAll('a.nav-link');
-    const currentPath = window.location.pathname;
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
     // Set active class for naviation links
 
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
 
-        if((currentPath === '/' || currentPath.endsWith('/index.html'))&& (linkPath === 'index.html' || linkPath === '/')){
-            link.classList.add('active');            
-        } else if(linkPath !== 'index.html' && linkPath !== '/' && currentPath.endsWith(linkPath)){
-            link.classList.add('active');
+        if((linkPath === 'index.html' || linkPath === '/') && (currentPath === '')){
+
+        
+          link.classList.add('active');            
+        } else if(linkPath !== 'index.html' && linkPath !== '/' && linkPath === currentPath){ 
+          link.classList.add('active');
         }
     });
 
