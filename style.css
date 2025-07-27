@@ -400,9 +400,46 @@ margin-top: 0;
     margin:20px 92px;
 }
 
+.ai-services {
+    text-align: center;
+
+}
+
+.ai-services p {
+    color: #7c7979;
+    font-size: 18px;
+}
+
+.ai-service {
+    border: 1px solid #7e7e7f;
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 50px;
+    min-height: 440px;
+}
+
+.ai-service p {
+color: #7c7979;
+}
+
+
+.ai-chatbot {
+    color: #2611c8;
+}
+
+.services-page {
+    column-count: 2;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    padding: 0 90px;
+    gap: 50px;
+}
+
 @keyframes blink {
     0% { opacity: 0.2; }
     20% { opacity: 1; }
     100% { opacity: 0.2; }
 }
+
 
