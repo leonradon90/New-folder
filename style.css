@@ -436,6 +436,27 @@ color: #7c7979;
     gap: 50px;
 }
 
+.ai-service ul {
+color: #7c7979;
+}
+
+.image-title {
+    display: flex;
+    align-items: center;
+}
+
+.services-button {
+    width: 100%;
+}
+
+.integrate-ai h1 {
+    color:#2611c8;
+}
+
+.integrate-ai p {
+    color:#7e7e7f;
+}
+
 @keyframes blink {
     0% { opacity: 0.2; }
     20% { opacity: 1; }
