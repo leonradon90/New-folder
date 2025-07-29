@@ -1,5 +1,6 @@
 body {
     font-family: sans-serif;
+    margin: 0 100px;
 }
 
 .logo-img {
@@ -165,7 +166,7 @@ width: 90px;
 }
 
 .nav-link {
-  padding: 10px 20px;
+  padding: 20px 20px;
   color: #333;
   text-decoration: none;
   font-size: 16px;
@@ -364,6 +365,7 @@ box-shadow: 5px 5px 26px #121212;
 display: flex; 
 width:360px;
 border-radius: 10px;
+align-items: center;
 }
 
 .results-show {
@@ -519,6 +521,9 @@ color: #7c7979;
 .our-location {
     border: 1px solid black;
     border-radius:16px;
+        box-shadow: 5px 5px 26px #121212;    
+    padding: 100px;
+    margin: 100px 0;
 }
 
 .our-location h2{
@@ -528,6 +533,7 @@ color: #7c7979;
 
 .our-location p {
     color: #7c7979;
+    
 }
 
 .our-location span {
@@ -536,7 +542,7 @@ color: #7c7979;
 
 .address {
     display: flex;
-    justify-content: space-around
+    justify-content: space-evenly;
 }
 
 @keyframes blink {
