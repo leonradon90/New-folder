@@ -457,6 +457,88 @@ color: #7c7979;
     color:#7e7e7f;
 }
 
+.contact-us-title {
+    color: #2611c8;
+    text-align: center;
+
+}
+
+.contact-us-text {
+    color:#7c7979;
+    text-align: center;
+}
+
+.contact-form {
+    display: grid;
+    width: 34%;
+    border: 1px solid black;
+    border-radius: 16px;
+    padding: 30px;
+    margin: 0;
+}
+
+.contact-form h2 {
+    margin: 0;
+}
+
+.explore-service.active.services-button :hover {
+    width: 100%;
+}
+
+
+
+.explore-services.active.services-button {
+    width: 100%;
+}
+
+.contact-page {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.lets-connect {
+    display: grid;
+    background-image: url(contact-image.jpg);    
+    text-align: center; 
+    align-content: center;
+    border-radius: 16px;
+}
+
+.lets-connect h2 {
+    color:#fff;
+}
+.lets-connect p {
+    color:#7c7979;
+}
+
+.contact-image {
+    display: grid;
+    margin: 0 auto;
+}
+
+.our-location {
+    border: 1px solid black;
+    border-radius:16px;
+}
+
+.our-location h2{
+    color: #2611c8;
+    text-align: center;
+}
+
+.our-location p {
+    color: #7c7979;
+}
+
+.our-location span {
+    color: #000;
+}
+
+.address {
+    display: flex;
+    justify-content: space-around
+}
+
 @keyframes blink {
     0% { opacity: 0.2; }
     20% { opacity: 1; }
