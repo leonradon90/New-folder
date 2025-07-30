@@ -18,9 +18,7 @@ body {
 .main-cover {
     text-align: center;
     padding: 6rem 90px;
-    box-shadow: 5px 5px 26px #121212;
     border-radius: 16px;
-    margin: 0 92px;
     box-shadow: 0px 19px 37px 0px #7c7979;
 }
 
@@ -39,6 +37,9 @@ color: #2611c8;
     height: 60px;
     border-style: none;
     cursor: pointer;
+    border-radius: 9px;
+    transition: background-color 0.3s ease;
+
 }
 
 
@@ -84,18 +85,15 @@ border-radius: 9px;
 
 .our-offerings {
     display: flex;
-    padding-top: 50px;
-
 }
 
 .services {
     text-align: center;
-    padding: 0 10px;
 }
 
 .product-showcase {
     display: inline-flex;
-    padding:100px 0;
+    margin:80px 0;
     align-items: center;
     width: 100%;
     justify-content: space-around;
@@ -109,6 +107,11 @@ border-radius: 9px;
     border-radius: 9px;
     border-style: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.get-consultation:hover {
+    background-color: #4c39d9;
 }
 
 .elevate-business {
@@ -116,9 +119,10 @@ border-radius: 9px;
     color: #fff;
     text-align: center;
     padding: 100px 0;
-    box-shadow: none;
+    box-shadow: 0px 19px 37px 0px #7c7979;
     border-top-left-radius: 16px;
-    border-top-right-radius: 16px
+    border-top-right-radius: 16px;
+    margin-bottom: 80px;
 }
 
 footer {
@@ -143,13 +147,18 @@ width: 90px;
 }
 
 .contact-us {
-        background-color: #66dbd3;
+    background-color: #66dbd3;
     border-radius: 9px;
-       width: 250px;
+    width: 250px;
     height: 60px;
     border-style: none;
     color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-us:hover {
+        background-color: #87e8e1;
 }
 
 .ai-image {
@@ -187,6 +196,10 @@ width: 90px;
     background-color: #66dbd3;
     color: #fff;
     font-weight: bold;
+}
+
+.nav-link.active:hover {
+    background-color: #87e8e1;
 }
 
 .city-image {
@@ -356,23 +369,25 @@ width: 90px;
 .results {
     text-align: center;
     color: #2611c8;
+    font-size: 26px;
 }
 
-.results-showcase {
+/*.results-showcase {
 padding: 30px;
-margin: 20px 20px;
-box-shadow: 5px 5px 26px #121212;
+margin: 20px 0;
+box-shadow: 0px 19px 37px 0px #7c7979;
 display: flex; 
 width:360px;
 border-radius: 10px;
 align-items: center;
-}
+} */
 
 .results-show {
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: center;
     gap:30px;
+    margin-top:60px;
 }
 
 .results-consultation {
@@ -399,7 +414,14 @@ margin-top: 0;
 
 .benefits-text {
     text-align: center;
-    margin:20px 92px;
+    margin:20px auto;
+    width: 80%;
+}
+
+.benefits h3 {
+    margin: 0 auto;
+    width: 60%;
+    color:#7c7979;
 }
 
 .ai-services {
@@ -436,6 +458,8 @@ color: #7c7979;
     align-content: center;
     padding: 0 90px;
     gap: 50px;
+    margin-top: 80px;
+    margin-bottom: 30px;
 }
 
 .ai-service ul {
@@ -449,6 +473,10 @@ color: #7c7979;
 
 .services-button {
     width: 100%;
+}
+
+.integrate-ai {
+    margin-bottom: 80px;
 }
 
 .integrate-ai h1 {
@@ -493,9 +521,15 @@ color: #7c7979;
     width: 100%;
 }
 
+.explore-services.active:hover {
+    background-color: #87e8e1;
+    border-color: #87e8e1;
+}
+
 .contact-page {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 80px;
 }
 
 .lets-connect {
@@ -519,11 +553,11 @@ color: #7c7979;
 }
 
 .our-location {
-    border: 1px solid black;
+    border: none;
     border-radius:16px;
-        box-shadow: 5px 5px 26px #121212;    
+    box-shadow: 0px 19px 37px 0px #7c7979;
     padding: 100px;
-    margin: 100px 0;
+    margin: 80px 0;
 }
 
 .our-location h2{
@@ -543,6 +577,47 @@ color: #7c7979;
 .address {
     display: flex;
     justify-content: space-evenly;
+}
+
+benefits {
+    margin: 80px 0;
+    text-align: center;
+}
+
+.results {
+    text-align: center;
+    color: #2611c8;
+    font-size: 26px;
+}
+
+.results-showcase {
+    padding: 30px;
+    margin: 20px 0;
+    box-shadow: 0px 10px 20px 0px #aaa;
+    display: flex; 
+    height: 90px;
+    width:360px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.results-showcase:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 25px 40px 0px #888;
+}
+
+.results-showcase span {
+    color:#7c7979;
+}
+
+.results-show {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:30px;
+    margin-top:60px;
 }
 
 @keyframes blink {
