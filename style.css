@@ -435,24 +435,43 @@ margin-top: 0;
 }
 
 .ai-service {
-    border: 1px solid #7e7e7f;
+    display: grid;
+    border: 1px solid #ddd;
     width: 100%;
     border-radius: 16px;
     margin-bottom: 50px;
-    min-height: 440px;
+    min-height: 547px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.ai-service:hover {
+    box-shadow: 0px 25px 40px 0px #888;
+}
+
+.ai-service-content {
+    padding: 1.5rem;
+    display: grid;
 }
 
 .ai-service p {
 color: #7c7979;
 }
 
+.ai-service-image {
+    height: 14rem;
+    width:100%;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
 
 .ai-chatbot {
     color: #2611c8;
 }
 
 .services-page {
-    column-count: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: center;
@@ -490,7 +509,7 @@ color: #7c7979;
 .contact-us-title {
     color: #2611c8;
     text-align: center;
-
+    font-size: 60px;
 }
 
 .contact-us-text {
@@ -501,14 +520,42 @@ color: #7c7979;
 .contact-form {
     display: grid;
     width: 34%;
-    border: 1px solid black;
+    border: none;
     border-radius: 16px;
     padding: 30px;
     margin: 0;
+    box-shadow: 0px 19px 37px 0px #7c7979;
+}
+
+.contact-form label {
+    padding-top: 10px;
+}
+
+.contact-form input {
+    margin-top: 10px;
+    border:none;
+    border-radius: 16px;
+    background-color:#7f7e7e1a;
+    padding: 10px 5px;
+    font-family: inherit;
+}
+
+.contact-form textarea {
+    margin-top:10px;
+    border:none;
+    border-radius: 16px;
+    background-color:#7f7e7e1a;
+    padding: 10px 5px;
+    font-family: inherit;
+    resize: none;
 }
 
 .contact-form h2 {
     margin: 0;
+}
+
+.contact-form p {
+    color:#7c7979;
 }
 
 .explore-service.active.services-button :hover {
@@ -538,13 +585,21 @@ color: #7c7979;
     text-align: center; 
     align-content: center;
     border-radius: 16px;
+background-color: rgb(0 0 0 / 43%);
+    background-blend-mode: darken;
+    padding:20px;
 }
+
 
 .lets-connect h2 {
     color:#fff;
 }
 .lets-connect p {
-    color:#7c7979;
+    color:#c8c7c7;
+}
+
+#form-button {
+    margin-top: 20px;
 }
 
 .contact-image {
@@ -625,5 +680,3 @@ benefits {
     20% { opacity: 1; }
     100% { opacity: 0.2; }
 }
-
-
