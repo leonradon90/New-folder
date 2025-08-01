@@ -148,6 +148,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    if (currentPath === 'chatbot.html') {
+         if (chatMessagesContainer && chatMessagesContainer.children.length === 0 && conversationHistory.length === 0) {
+            addMessageToChat('assistant', "Hello! How can I help you today?");
+        }
+    }
     // Event Listeners for Chat
     if (chatToggleButton) {
         chatToggleButton.addEventListener('click', toggleChatWindow);

@@ -465,6 +465,10 @@ color: #7c7979;
     border-top-right-radius: 16px;
 }
 
+.ai-service-icon {
+    margin-right:10px;
+}
+
 .ai-chatbot {
     color: #2611c8;
 }
@@ -673,6 +677,50 @@ benefits {
     justify-content: center;
     gap:30px;
     margin-top:60px;
+}
+
+ CHATBOT PAGE STYLES --- */
+.chatbot-page-container {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.chatbot-page-title {
+    font-size: 2.5rem;
+    color: #2611c8;
+    margin-bottom: 0.5rem;
+}
+
+.chatbot-page-description {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.chat-ai-fullscreen {
+    display: flex; /* Make it visible by default on this page */
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    height: 70vh; /* Make it taller */
+    margin: 0 auto; /* Center it */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.chat-ai-fullscreen .chat-header {
+    flex-shrink: 0;
+}
+
+.chat-ai-fullscreen .chat-container {
+    flex-grow: 1;
+}
+
+.chat-ai-fullscreen .chat-input-area {
+    flex-shrink: 0;
 }
 
 @keyframes blink {
