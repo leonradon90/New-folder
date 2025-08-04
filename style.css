@@ -176,7 +176,7 @@ width: 90px;
 
 .nav-link {
   padding: 20px 20px;
-  color: #333;
+  color: #7c7979;
   text-decoration: none;
   font-size: 16px;
   border-radius: 8px;
@@ -189,7 +189,7 @@ width: 90px;
 
 .nav-link:hover {
     background-color:#e9e9ec;
-    color: #000;
+    color: #7c7979;
 }
 
 .nav-link.active {
@@ -527,8 +527,9 @@ color: #7c7979;
     border: none;
     border-radius: 16px;
     padding: 30px;
-    margin: 0;
+    margin-right: 20px;
     box-shadow: 0px 19px 37px 0px #7c7979;
+
 }
 
 .contact-form label {
@@ -562,7 +563,11 @@ color: #7c7979;
     color:#7c7979;
 }
 
-.explore-service.active.services-button :hover {
+.explore-service.active.services-button:hover {
+    width: 100%;
+}
+
+.services-button:hover {
     width: 100%;
 }
 
@@ -679,7 +684,6 @@ benefits {
     margin-top:60px;
 }
 
- CHATBOT PAGE STYLES --- */
 .chatbot-page-container {
     text-align: center;
     padding: 2rem 1rem;
@@ -689,6 +693,7 @@ benefits {
     font-size: 2.5rem;
     color: #2611c8;
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .chatbot-page-description {
@@ -699,12 +704,12 @@ benefits {
 }
 
 .chat-ai-fullscreen {
-    display: flex; /* Make it visible by default on this page */
+    display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 800px;
-    height: 70vh; /* Make it taller */
-    margin: 0 auto; /* Center it */
+    height: 70vh; 
+    margin: 0 auto;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
