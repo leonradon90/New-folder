@@ -8,12 +8,12 @@
             <img class="logo-img" src="logo.png" alt="logo">
             <a class ="nav-link" href="index.html">Home</a>
            <a class="nav-link" href="services.html">Services</a>
-           <a class="nav-link" href="chatbot.html">Chatbot Assistant</a>
+           <a class="nav-link" href="chatbot.html">Chatbot</a>
          <a class="nav-link" href="contact.html">Contact</a>
       <!--   <a class="nav-link" href="about.html">About Us</a>-->
         </nav>
         <div class="main-cover">
-            <h1 class="main-heading">Chatbot Assistant</h1>
+            <h1 class="main-heading">AI Chatbot Assistant</h1>
             <p class="main-heading-paragraph">Supercharge your business with cutting-edge AI solutions. From chatbot assistance to custom created software we empower your success.
 </p>
 <a href="services.html"><button class="explore-services active">Explore Services &#8594</button></a>
@@ -36,20 +36,7 @@
                <a class="link" href="services.html">Discover Possibilites</a>
         </div>
         <div class="services">
-            <div><svg  class="ai-image" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  
-  <rect x="12" y="12" width="12" height="12" rx="2" stroke="#111827" stroke-width="2"/>
-  <rect x="12" y="40" width="12" height="12" rx="2" stroke="#111827" stroke-width="2"/>
-  <rect x="40" y="26" width="12" height="12" rx="2" stroke="#111827" stroke-width="2"/>
-  <path d="M24 18h10v8" stroke="#4F46E5" stroke-width="2" stroke-linecap="round"/>
-  <path d="M24 46h10v-8" stroke="#4F46E5" stroke-width="2" stroke-linecap="round"/>
-  <path d="M40 32H34" stroke="#4F46E5" stroke-width="2" stroke-linecap="round"/>
-  <rect x="28" y="28" width="8" height="8" rx="1" fill="#4F46E5"/>
-</svg>
-
-
-
-</div>
+            <img class="robot-img" src="task-ai.svg" alt="Chatbot image">
             <h2>AI Task Automation Solutions</h2>
             <p>Tailored AI development to meet your unique business challenges. Let's build the future of your business, together.</p>
             <a class="link" href="contact.html">Automate Repetitive Tasks</a>
@@ -137,20 +124,22 @@ It’s not just automation — it’s performance optimization.
   <a href="contact.html"><button class="contact-us">Contact Us Today</button></a>  
 </div>
 <footer>
-    <p>© 2025 AI Biz Assistant. All rights reserved.</p>
-  <!--  <p>Powered by Next.js & Genkit</p>-->
+    <p>© 2025 Lekronis. All rights reserved.</p>
     <button id="chat-toggle-button" class="chat-toggle">
-        <img id="chat-icon-open" src="robot.svg" alt="">
-        <img id="chat-icon-close" src="light-bulb.svg" alt="" hidden>
+        <img id="chat-icon-open" src="robot-white.svg" alt="">
+        <img id="chat-icon-close" src="cross.svg" alt="" hidden>
     </button>
     <div id="chat-window" class="chat-ai">
-        <div class="chat-header">Ai Biz Assistant
+        <div class="chat-header">Ai Chatbot
             <button id="close-chat-window-button" class="chat-min">
                     &times;
             </button>
         </div>
         <div class="chat-container" id="chat-messages">
             
+        </div>
+        <div class="chat-suggestions-container" id="chat-suggestions">
+
         </div>
         <div class="chat-input-area">
             <input type="text" id="chat-input" placeholder="Type your message">

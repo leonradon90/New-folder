@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatMessagesContainer = document.getElementById('chat-messages');
     const chatInput = document.getElementById('chat-input');
     const chatSendButton = document.getElementById('chat-send-button');
+    const chatSuggestionsContainer = document.getElementById('chat-suggestions');
     
     // !!! IMPORTANT: You MUST replace this with your actual OpenAI API key.
     // It is a major security risk to expose your key in client-side code.
@@ -46,6 +47,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let conversationHistory = [];
 
+    const suggestionPrompts = [
+        "What services do you offer?",
+        "Tell me about your pricing.",
+        "How can AI help my business?",
+        "Do you build custom software?"
+    ];
+
+    function displaySuggestions() {
+        if (!chatSuggestionsContainer) return;
+        chatSuggestionsContainer.innerHTML = '';
+        suggestionPrompts.forEach(promptText => {
+            const button = document.createElement('button');
+            button.classList.add('chat-suggestion-chip');
+            button.textContent = promptText;
+            button.addEventListener('click', () => {
+                chatInput.value = promptText;
+                handleSendMessage();
+            });
+            chatSuggestionsContainer.appendChild(button);
+        });
+    }
+
+    function hideSuggestions() {
+        if (chatSuggestionsContainer) {
+            chatSuggestionsContainer.style.display = 'none';
+        }
+    }
+
     function toggleChatWindow() {
         const isOpen = chatWindow.classList.toggle('open');
         if (isOpen) {
@@ -54,7 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
             chatWindow.style.zIndex = '1001';
             // Add initial greeting if chat is empty
             if (chatMessagesContainer.children.length === 0 && conversationHistory.length === 0) {
-                addMessageToChat('assistant', "Hello! How can I help you today using OpenAI?");
+                addMessageToChat('assistant', "Hello! How can I help you today?");
+                displaySuggestions();
             }
         } else {
             chatIconOpen.style.display = 'block';
@@ -86,6 +116,8 @@ document.addEventListener('DOMContentLoaded', function() {
     async function handleSendMessage() {
         const userInput = chatInput.value.trim();
         if (!userInput) return;
+
+        hideSuggestions();
 
         if (OPENAI_API_KEY === 'YOUR_API_KEY_HERE') {
             addMessageToChat('assistant', "Please set your OpenAI API key in the script.js file.");
@@ -151,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentPath === 'chatbot.html') {
          if (chatMessagesContainer && chatMessagesContainer.children.length === 0 && conversationHistory.length === 0) {
             addMessageToChat('assistant', "Hello! How can I help you today?");
+            displaySuggestions();
         }
     }
     // Event Listeners for Chat
