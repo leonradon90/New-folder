@@ -132,6 +132,7 @@ footer {
 
 .logo-img {
     width: 63px;
+    height: 63px;
 }
 
 .heading {
@@ -553,6 +554,7 @@ color: #7c7979;
     padding: 30px;
     margin-right: 20px;
     box-shadow: 0px 19px 37px 0px #7c7979;
+    margin-bottom: 0px;
 
 }
 
@@ -753,32 +755,246 @@ benefits {
     flex-shrink: 0;
 }
 
+.contact-form form label {
+    padding-top: 10px;
+    font-weight: 600;
+}
+
+.contact-form form input,
+.contact-form form textarea {
+    margin-top: 10px;
+    border: none;
+    border-radius: 16px;
+    background-color: #7f7e7e1a;
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: none; /* for textarea */
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-form form input:focus,
+.contact-form form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 6px 2px #66dbd3;
+}
+
+.contact-form form button {
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+    background-color: #66dbd3;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form form button:hover {
+    background-color: #87e8e1;
+}
+
+
 @keyframes blink {
     0% { opacity: 0.2; }
     20% { opacity: 1; }
     100% { opacity: 0.2; }
 }
-
-@media (max-device-width:768px){
-
-    .our-offerings {
-        display: block;
+@media screen and (max-width: 1024px) {
+    body {
+        margin: 0 40px;
     }
-
+    .menu {
+        padding: 20px 40px;
+    }
+    .main-heading {
+        font-size: 48px;
+    }
+    .main-heading-paragraph {
+        font-size: 22px;
+    }
+    
     .product-showcase {
-        display: block;
+        display: grid;
     }
-
+    
+    .city-div {
+        display: grid;
+    }
+    
+     .city-div a {
+        display: grid;
+        justify-content: center;
+    }
+    
+    button {
+        font-size: medium;
+    }
+    
+    .our-offerings {
+display: grid;
+row-gap: 20px;
+        
+    }
+    
+    
+    
+    .our-services,
+    .results {
+        font-size: 22px;
+    }
+    
     .services-page {
-        display: block;
+        grid-template-columns: none;
     }
-
-    .contact-form {
-        width: 100%;
+    .contact-us-title,
+    .chatbot-page-title {
+        font-size: 42px;
     }
-
+    .chatbot-page-description {
+        font-size: 18px;
+    }
+    .menu a {
+        font-size: 15px;
+    }
+    
     .contact-page {
-        display: block;
+        display:block;
+    }
+    .contact-form {
+        width: 80%;
+        max-width: 500px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    
+    .lets-connect {
+        height: 250px;
+    }
+    
+    .lets-connect p {
+    color: #fff;
+}
+    
+}
+
+/* Large phones / small tablets (≤768px) */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 0 20px;
     }
 
+    /* Popup menu */
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: #fff;
+        width: 75%;
+        height: 100vh;
+        padding: 40px 20px;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+        z-index: 2000;
+    }
+    .menu.open {
+        display: flex;
+    }
+    .menu a {
+        font-size: 18px;
+        padding: 15px 0;
+    }
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 2100;
+    }
+
+    .main-heading {
+        font-size: 36px;
+    }
+    .main-heading-paragraph {
+        font-size: 18px;
+    }
+    .our-services,
+    .results {
+        font-size: 20px;
+    }
+    .contact-us-title,
+    .chatbot-page-title {
+        font-size: 36px;
+    }
+    .chatbot-page-description {
+        font-size: 16px;
+    }
+
+    /* Contact form fix */
+    .contact-page {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+                        display: block;
+
+    }
+    .contact-form {
+        width: 90%;
+        padding: 25px;
+
+    }
+
+    /* Chatbot layout */
+    .chat-ai-fullscreen {
+        width: 100%;
+        height: 80vh;
+    }
+}
+
+/* Small phones (≤500px) */
+@media screen and (max-width: 500px) {
+    body {
+        margin: 0 10px;
+    }
+    h1, h2, h3 {
+        font-size: 85%;
+    }
+    .main-heading {
+        font-size: 28px;
+    }
+    .main-heading-paragraph {
+        font-size: 16px;
+    }
+    .our-services,
+    .results {
+        font-size: 18px;
+    }
+    .contact-us-title,
+    .chatbot-page-title {
+        font-size: 28px;
+    }
+    .chatbot-page-description {
+        font-size: 14px;
+    }
+    .menu a {
+        font-size: 14px;
+    }
+    .chat-ai-fullscreen {
+        width: 100%;
+        height: 75vh;
+    }
+    .chat-input-area input {
+        font-size: 14px;
+    }
+    .chat-input-area button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
 }

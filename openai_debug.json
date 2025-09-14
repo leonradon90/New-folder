@@ -1,0 +1,58 @@
+{
+    "object": "list",
+    "data": [
+        {
+            "id": "msg_ChzNdexHy7SkSSnUSr6qXbLz",
+            "object": "thread.message",
+            "created_at": 1756129310,
+            "assistant_id": "asst_kK39U12s2342yrSKsUO8y7GQ",
+            "thread_id": "thread_1DSJNBU5bpMuhdNPnGKv5DMO",
+            "run_id": "run_GK0rNdT9lcc8bOEwANpLhTq3",
+            "role": "assistant",
+            "content": [
+                {
+                    "type": "text",
+                    "text": {
+                        "value": "Lekronis offers custom pricing for each client based on their specific needs and technical requirements. The pricing range can start from a few hundred dollars for simpler solutions and extend to a few thousand dollars or more for highly technical AI solutions. They also plan to introduce a customizable monthly subscription fee option in the future. To better understand your requirements and determine the right pricing, it's recommended to schedule a free consultation\u30104:1\u2020Vectors.txt\u3011.",
+                        "annotations": [
+                            {
+                                "type": "file_citation",
+                                "text": "\u30104:1\u2020Vectors.txt\u3011",
+                                "start_index": 472,
+                                "end_index": 489,
+                                "file_citation": {
+                                    "file_id": "file-VQ52UBFQnK3BF9PsHgd9J5"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "attachments": [],
+            "metadata": []
+        },
+        {
+            "id": "msg_eF2nVBFtNm1o252GGZxLG2ZP",
+            "object": "thread.message",
+            "created_at": 1756129305,
+            "assistant_id": null,
+            "thread_id": "thread_1DSJNBU5bpMuhdNPnGKv5DMO",
+            "run_id": null,
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": {
+                        "value": "Tell me about your pricing.",
+                        "annotations": []
+                    }
+                }
+            ],
+            "attachments": [],
+            "metadata": []
+        }
+    ],
+    "first_id": "msg_ChzNdexHy7SkSSnUSr6qXbLz",
+    "last_id": "msg_eF2nVBFtNm1o252GGZxLG2ZP",
+    "has_more": false
+}

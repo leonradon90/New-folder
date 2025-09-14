@@ -1,22 +1,15 @@
-
-document.addEventListener('DOMContentLoaded', function() {
-
+document.addEventListener('DOMContentLoaded', () => {
     // --- Navigation & Button Active State Logic ---
     const navLinks = document.querySelectorAll('a.nav-link');
-    // Get the final part of the path, e.g., "services.html" or "" for the root.
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html'; 
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
-    // Set active class for navigation links
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
-
-        // Check for an exact match, treating the root path (/) and index.html as the same.
         if (linkPath === currentPath || (linkPath === 'index.html' && currentPath === '')) {
             link.classList.add('active');
         }
     });
 
-    // Set active class for interactive CTA buttons
     const ctaButtons = document.querySelectorAll('.explore-services');
     ctaButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -24,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
         });
     });
-
 
     // --- Chatbot Logic ---
     const chatToggleButton = document.getElementById('chat-toggle-button');
@@ -36,14 +28,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatInput = document.getElementById('chat-input');
     const chatSendButton = document.getElementById('chat-send-button');
     const chatSuggestionsContainer = document.getElementById('chat-suggestions');
-    
-    // !!! IMPORTANT: You MUST replace this with your actual OpenAI API key.
-    // It is a major security risk to expose your key in client-side code.
-    // In a real application, this call should be made from a backend server.
-    const OPENAI_API_KEY = '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';
 
-    const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
-    const OPENAI_MODEL = 'gpt-3.5-turbo';
+    // YOUR OpenAI API key and Assistant ID — replace these with your actual values
+    const OPENAI_API_KEY = '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';
+    const ASSISTANT_ID = 'asst_kK39U12s2342yrSKsUO8y7GQ';
+
+    const OPENAI_ASSISTANTS_URL = `https://api.openai.com/v1/assistants/${ASSISTANT_ID}/responses`;
 
     let conversationHistory = [];
 
@@ -67,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             chatSuggestionsContainer.appendChild(button);
         });
+        chatSuggestionsContainer.style.display = 'flex';  // show suggestions
     }
 
     function hideSuggestions() {
@@ -81,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
             chatIconOpen.style.display = 'none';
             chatIconClose.style.display = 'block';
             chatWindow.style.zIndex = '1001';
-            // Add initial greeting if chat is empty
             if (chatMessagesContainer.children.length === 0 && conversationHistory.length === 0) {
                 addMessageToChat('assistant', "Hello! How can I help you today?");
                 displaySuggestions();
@@ -110,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         chatMessagesContainer.appendChild(messageDiv);
         chatMessagesContainer.scrollTop = chatMessagesContainer.scrollHeight;
-        return messageDiv; // Return the message element so it can be removed
+        return messageDiv;
     }
 
     async function handleSendMessage() {
@@ -119,74 +109,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
         hideSuggestions();
 
-        if (OPENAI_API_KEY === 'YOUR_API_KEY_HERE') {
-            addMessageToChat('assistant', "Please set your OpenAI API key in the script.js file.");
-            return;
-        }
-
         addMessageToChat('user', userInput);
         chatInput.value = '';
-        conversationHistory.push({ role: 'user', content: userInput });
 
         const loadingMessageDiv = addMessageToChat('assistant', '', true);
 
         try {
-            const response = await fetch(OPENAI_API_URL, {
+            const response = await fetch('/openai.php', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${OPENAI_API_KEY}`
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    model: OPENAI_MODEL,
-                    messages: conversationHistory,
-                }),
+                body: JSON.stringify({ message: userInput })
             });
 
-            // Remove the loading message immediately
-            if (loadingMessageDiv) {
-                loadingMessageDiv.remove();
-            }
+            if (loadingMessageDiv) loadingMessageDiv.remove();
 
             if (!response.ok) {
-                const errorData = await response.json().catch(() => ({ error: { message: 'Failed to parse error from OpenAI API' } }));
-                console.error('OpenAI API Error:', response.status, errorData);
-                addMessageToChat('assistant', `Error: ${errorData.error?.message || 'Could not get a response from OpenAI.'}`);
-                conversationHistory.pop(); // Remove the user's message from history on failure
+                const errorData = await response.json().catch(() => ({ error: { message: 'Failed to parse error' } }));
+                addMessageToChat('assistant', `Error: ${errorData.error?.message || 'No response'}`);
                 return;
             }
 
             const data = await response.json();
-            if (data.choices && data.choices.length > 0 && data.choices[0].message) {
-                const assistantResponse = data.choices[0].message.content;
-                addMessageToChat('assistant', assistantResponse);
-                conversationHistory.push({ role: 'assistant', content: assistantResponse });
+            console.log('API response:', data);
+            if (data.answer) {
+                addMessageToChat('assistant', data.answer);
             } else {
-                addMessageToChat('assistant', 'Sorry, I received an unexpected response from OpenAI.');
+                addMessageToChat('assistant', 'Sorry, no valid response from assistant.');
             }
         } catch (error) {
-            console.error('Network or other error:', error);
-            // Ensure loading message is removed even on network error
-            if (loadingMessageDiv) {
-                loadingMessageDiv.remove();
-            }
-            addMessageToChat('assistant', 'Sorry, there was an issue connecting to OpenAI. Please check your connection or API key.');
-            conversationHistory.pop(); // Remove the user's message from history on failure
-        }
-
-        // Keep conversation history from getting too long to manage token usage
-        if (conversationHistory.length > 20) {
-            conversationHistory = conversationHistory.slice(-20);
+            if (loadingMessageDiv) loadingMessageDiv.remove();
+            addMessageToChat('assistant', 'Error connecting to the server.');
         }
     }
 
-    if (currentPath === 'chatbot.html') {
-         if (chatMessagesContainer && chatMessagesContainer.children.length === 0 && conversationHistory.length === 0) {
+    if (window.location.pathname.split('/').pop() === 'chatbot.html') {
+        if (chatMessagesContainer && chatMessagesContainer.children.length === 0 && conversationHistory.length === 0) {
             addMessageToChat('assistant', "Hello! How can I help you today?");
             displaySuggestions();
         }
     }
-    // Event Listeners for Chat
+
     if (chatToggleButton) {
         chatToggleButton.addEventListener('click', toggleChatWindow);
     }
