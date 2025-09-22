@@ -1,4 +1,36 @@
+import { useState } from "react";
+
 export default function ChatbotPage() {
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [suggestions, setSuggestions] = useState([
+    "What services do you offer?",
+    "Contact support",
+    "Pricing",
+  ]);
+
+  const handleSend = (text = input) => {
+    if (!text.trim()) return;
+
+    const newMessages = [...messages, { type: "user", text }];
+    setMessages(newMessages);
+    setInput("");
+    setLoading(true);
+
+    // Clear all suggestions when a message is sent
+    setSuggestions([]);
+
+    // Fake bot reply
+    setTimeout(() => {
+      setMessages([
+        ...newMessages,
+        { type: "bot", text: "This is a demo bot reply." },
+      ]);
+      setLoading(false);
+    }, 1200);
+  };
+
   return (
     <div className="chatbot-page-container">
       <h1 className="chatbot-page-title">AI Chatbot Assistant</h1>
@@ -7,13 +39,60 @@ export default function ChatbotPage() {
       </p>
 
       <div id="chat-window" className="chat-ai-fullscreen">
-        <div className="chat-header">Ai Chatbot</div>
-        <div id="chat-messages" className="chat-container"></div>
-        <div className="chat-suggestions-container" id="chat-suggestions"></div>
+        <div className="chat-header">AI Chatbot</div>
 
-        <div className="chat-input-area">
-          <input type="text" id="chat-input" placeholder="Type your message" />
-          <button id="chat-send-button">Send</button>
+        {/* Messages */}
+        <div id="chat-messages" className="chat-container">
+          {messages.map((msg, idx) => (
+            <div
+              key={idx}
+              className={`chat-message ${msg.type === "user" ? "user-message" : "bot-message"}`}
+            >
+              {msg.text}
+            </div>
+          ))}
+
+          {loading && (
+            <div className="chat-message bot-message">
+              <div className="loading-dots">
+                <span>•</span>
+                <span>•</span>
+                <span>•</span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Input area + suggestions */}
+        <div className="chat-input-wrapper">
+          {/* Suggestions just above input */}
+          {suggestions.length > 0 && (
+            <div className="chat-suggestions-container" id="chat-suggestions">
+              {suggestions.map((s, idx) => (
+                <div
+                  key={idx}
+                  className="chat-suggestion-chip"
+                  onClick={() => handleSend(s)}
+                >
+                  {s}
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="chat-input-area">
+            <input
+              type="text"
+              id="chat-input"
+              placeholder="Type your message"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            />
+            <button id="chat-send-button" onClick={() => handleSend()}>
+              Send
+            </button>
+          </div>
         </div>
       </div>
     </div>
