@@ -1,4 +1,6 @@
 import { useState } from "react";
+import robotWhite from "../assets/robot-white.svg";
+import cross from "../assets/cross.svg";
 
 export default function ChatbotPage() {
   const [messages, setMessages] = useState([]);
@@ -95,6 +97,14 @@ export default function ChatbotPage() {
           </div>
         </div>
       </div>
+             <footer>
+        <p>© 2025 Lekronis. All rights reserved.</p>
+        <button id="chat-toggle-button" className="chat-toggle">
+          <img id="chat-icon-open" src={robotWhite} alt="chat open" hidden />
+          <img id="chat-icon-close" src={cross} alt="chat close" hidden />
+        </button>
+        {/* Chatbot will later be handled with React state/hooks */}
+      </footer>
     </div>
   );
 }

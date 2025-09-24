@@ -1,9 +1,9 @@
 import { useState } from "react";
-
+import robotWhite from "../assets/robot-white.svg";
+import cross from "../assets/cross.svg";
 
 
 export default function Chatbot() {
-    
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -24,10 +24,8 @@ export default function Chatbot() {
     setInput("");
     setLoading(true);
 
-    // Clear all suggestions when a message is sent
     setSuggestions([]);
 
-    // Fake bot reply
     setTimeout(() => {
       setMessages([
         ...newMessages,
@@ -41,15 +39,25 @@ export default function Chatbot() {
     <>
       {/* Toggle button */}
       <button className="chat-toggle" onClick={toggleChat}>
-        {isOpen ? <span className="chat-icon-close"></span> : <span className="chat-icon-open"></span>}
+        <img 
+          src={isOpen ? cross : robotWhite}
+          alt={isOpen ? "Close chat" : "Open chat"}
+          style={{
+            width: '26px',
+            height: '26px',
+            display: 'block',
+          }}
+        />
       </button>
 
       {/* Chat window */}
       <div className={`chat-ai ${isOpen ? "open" : ""}`}>
         <div className="chat-header">
-          Chat with us
+          AI Chatbot
           <button className="chat-min" onClick={toggleChat}>
-            <span className="chat-icon-close"></span>
+            {/* Replace the span with a simple × symbol or use the cross image */}
+            ×
+            {/* OR use: <img src={cross} alt="close" style={{width: '16px', height: '16px'}} /> */}
           </button>
         </div>
 
@@ -58,12 +66,13 @@ export default function Chatbot() {
           {messages.map((msg, i) => (
             <div
               key={i}
-              className={`chat-message ${msg.type === "user" ? "user-message" : "bot-message"}`}
+              className={`chat-message ${
+                msg.type === "user" ? "user-message" : "bot-message"
+              }`}
             >
               {msg.text}
             </div>
           ))}
-
           {loading && (
             <div className="chat-message bot-message">
               <div className="loading-dots">
@@ -77,7 +86,6 @@ export default function Chatbot() {
 
         {/* Input area + suggestions */}
         <div className="chat-input-wrapper">
-          {/* Suggestions just above input */}
           {suggestions.length > 0 && (
             <div className="chat-suggestions-container">
               {suggestions.map((s, idx) => (
@@ -91,7 +99,6 @@ export default function Chatbot() {
               ))}
             </div>
           )}
-
           <div className="chat-input-area">
             <input
               id="chat-input"
@@ -107,6 +114,8 @@ export default function Chatbot() {
           </div>
         </div>
       </div>
+
+
     </>
   );
 }

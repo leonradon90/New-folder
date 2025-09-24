@@ -24,12 +24,15 @@ export default function Home() {
           Supercharge your business with cutting-edge AI solutions. From chatbot
           assistance to custom software, we empower your success.
         </p>
-        <Link to="/services">
-          <button className="explore-services active">Explore Services →</button>
-        </Link>
-        <Link to="/contact">
-          <button className="explore-services">Contact Us →</button>
-        </Link>
+        <div className="button-container">
+  <Link to="/services">
+    <button className="explore-services active">Explore Services →</button>
+  </Link>
+  <Link to="/contact">
+    <button className="explore-services">Contact Us →</button>
+  </Link>
+</div>
+
       </div>
 
       {/* Services Section */}
@@ -206,7 +209,7 @@ export default function Home() {
       <footer>
         <p>© 2025 Lekronis. All rights reserved.</p>
         <button id="chat-toggle-button" className="chat-toggle">
-          <img id="chat-icon-open" src={robotWhite} alt="chat open" />
+          <img id="chat-icon-open" src={robotWhite} alt="chat open" hidden />
           <img id="chat-icon-close" src={cross} alt="chat close" hidden />
         </button>
         {/* Chatbot will later be handled with React state/hooks */}

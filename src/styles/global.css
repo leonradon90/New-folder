@@ -232,7 +232,7 @@ width: 90px;
 }
 
 .chat-toggle:hover {
-    background-color: #66dbd382;
+    background-color: #87e8e1 !important;
 }
 
 .chat-ai {
@@ -714,6 +714,7 @@ benefits {
 .chatbot-page-container {
     text-align: center;
     padding: 2rem 1rem;
+    padding-bottom: 0;
 }
 
 .chatbot-page-title {
@@ -792,9 +793,62 @@ benefits {
     transition: background-color 0.3s ease;
 }
 
+.button-container {
+display: flex;
+gap: 10px;
+justify-content: center;
+}
+
 .contact-form form button:hover {
     background-color: #87e8e1;
 }
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* logo left, menu right */
+  align-items: center;
+}
+
+/* Menu links (desktop) */
+.menu {
+ 
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+/* Hamburger — hidden on desktop */
+.hamburger {
+  display: none;              /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+  z-index: 1001;
+}
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #333;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(3px, 9px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -10px);
+}
+
+
 
 
 @keyframes blink {
@@ -802,12 +856,13 @@ benefits {
     20% { opacity: 1; }
     100% { opacity: 0.2; }
 }
+/* Medium devices / tablets (≤1024px) */
 @media screen and (max-width: 1024px) {
     body {
-        margin: 0 40px;
+        margin: 0 5%;
     }
     .menu {
-        padding: 20px 40px;
+        padding: 20px 5%;
     }
     .main-heading {
         font-size: 48px;
@@ -816,30 +871,34 @@ benefits {
         font-size: 22px;
     }
     
-    .product-showcase {
+.product-showcase {
         display: grid;
+        justify-items: center;
+        gap: 20px;
     }
-    
+
     .city-div {
-        display: grid;
+        width: 100%;
+        max-width: 90%;
+        text-align: center;
+        align-items: center;
     }
-    
-     .city-div a {
-        display: grid;
-        justify-content: center;
+
+    .city-image {
+        width: 100%;
+        max-width: 100%;
     }
+
     
     button {
-        font-size: medium;
+        font-size: 1rem;
     }
     
     .our-offerings {
-display: grid;
-row-gap: 20px;
-        
+        display: grid;
+        row-gap: 20px;
+        justify-items: center;
     }
-    
-    
     
     .our-services,
     .results {
@@ -847,7 +906,9 @@ row-gap: 20px;
     }
     
     .services-page {
-        grid-template-columns: none;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0;
     }
     .contact-us-title,
     .chatbot-page-title {
@@ -861,140 +922,148 @@ row-gap: 20px;
     }
     
     .contact-page {
-        display:block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .contact-form {
         width: 80%;
         max-width: 500px;
-        margin: 0 auto;
         margin-bottom: 30px;
+        margin-right: 0;
     }
     
     .lets-connect {
-        height: 250px;
+        height: auto;
+        padding: 40px 20px;
     }
     
     .lets-connect p {
-    color: #fff;
-}
-    
+        color: #fff;
+    }
+
+    .city-image,
+    .robot-img,
+    .icon-light-bulb {
+        max-width: 100%;
+        height: auto;
+    }
+
+    ul {
+        text-align: left;
+    }
 }
 
-/* Large phones / small tablets (≤768px) */
+/* Small tablets / large phones (≤768px) */
 @media screen and (max-width: 768px) {
-    body {
-        margin: 0 20px;
-    }
+  body { 
+    margin: 0 3%; 
+  }
 
-    /* Popup menu */
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: 0;
-        background: #fff;
-        width: 75%;
-        height: 100vh;
-        padding: 40px 20px;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-        z-index: 2000;
-    }
-    .menu.open {
-        display: flex;
-    }
-    .menu a {
-        font-size: 18px;
-        padding: 15px 0;
-    }
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        background: none;
-        border: none;
-        font-size: 28px;
-        cursor: pointer;
-        z-index: 2100;
-    }
+  /* On mobile, menu shows hamburger + logo, hides nav links */
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 3%;
+  }
 
-    .main-heading {
-        font-size: 36px;
-    }
-    .main-heading-paragraph {
-        font-size: 18px;
-    }
-    .our-services,
-    .results {
-        font-size: 20px;
-    }
-    .contact-us-title,
-    .chatbot-page-title {
-        font-size: 36px;
-    }
-    .chatbot-page-description {
-        font-size: 16px;
-    }
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: flex;
+  }
 
-    /* Contact form fix */
-    .contact-page {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-                        display: block;
+  /* Hide nav links by default on mobile */
+  .nav-link {
+    display: none;
+  }
 
-    }
-    .contact-form {
-        width: 90%;
-        padding: 25px;
+  /* When menu is open, create overlay with nav links */
+  .menu.open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 60vh; /* Reduced height to 60% of screen */
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    border-bottom-left-radius: 16px; /* Rounded bottom corner */
+    z-index: 998;
+  }
 
-    }
+  .menu.open .nav-link {
+    display: block;
+    position: fixed;
+    right: 0;
+    width: 30%; /* Account for padding so links don't go outside */
+    z-index: 999;
+    padding: 15px 32px;
+    color: #7c7979;
+    text-decoration: none;
+    background: transparent;
+    border-radius: 8px;
+    margin: 0 32px; /* Add margin to keep links inside */
+  }
 
-    /* Chatbot layout */
-    .chat-ai-fullscreen {
-        width: 100%;
-        height: 80vh;
-    }
-}
+  .menu.open .nav-link:nth-child(3) { top: 80px; } /* Home */
+  .menu.open .nav-link:nth-child(4) { top: 130px; } /* Services */
+  .menu.open .nav-link:nth-child(5) { top: 180px; } /* Chatbot */  
+  .menu.open .nav-link:nth-child(6) { top: 230px; } /* Contact */
 
-/* Small phones (≤500px) */
-@media screen and (max-width: 500px) {
-    body {
-        margin: 0 10px;
-    }
-    h1, h2, h3 {
-        font-size: 85%;
-    }
-    .main-heading {
-        font-size: 28px;
-    }
-    .main-heading-paragraph {
-        font-size: 16px;
-    }
-    .our-services,
-    .results {
-        font-size: 18px;
-    }
-    .contact-us-title,
-    .chatbot-page-title {
-        font-size: 28px;
-    }
-    .chatbot-page-description {
-        font-size: 14px;
-    }
-    .menu a {
-        font-size: 14px;
-    }
-    .chat-ai-fullscreen {
-        width: 100%;
-        height: 75vh;
-    }
-    .chat-input-area input {
-        font-size: 14px;
-    }
-    .chat-input-area button {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-}
+  .menu.open .nav-link:hover {
+    background-color: #e9e9ec;
+  }
+
+  .menu.open .nav-link.active {
+    background-color: #66dbd3;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .logo-img {
+    padding: 0px 20px;
+  }
+
+  /* Keep your existing mobile styles */
+  .main-heading { font-size: 36px; }
+  .main-heading-paragraph { font-size: 18px; }
+  .our-services, .results { font-size: 20px; }
+  .explore-services, .get-consultation {
+    width: 80%;
+    max-width: 250px;
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+  .results-showcase {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    width: 80%;
+  }
+  #chat-toggle-button { display: none; }
+  .chat-toggle { display: none; }
+  .contact-us-title, .chatbot-page-title { font-size: 36px; }
+  .chatbot-page-description { font-size: 16px; }
+  .contact-page {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  .contact-form {
+    width: unset;
+    padding: 20px;
+  }
+  .chat-ai-fullscreen {
+    width: 100%;
+    height: 80vh;
+  }
+
+  .main-cover {
+    padding: 20px;
+  }
+
+  .our-location {
+    padding:20px;
+  }
+}   

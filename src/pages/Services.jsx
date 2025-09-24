@@ -8,6 +8,8 @@ import lightning from "../assets/lightning.svg";
 import cityAI from "../assets/city-ai.png";
 import humanCogwheels from "../assets/human-cogwheels.svg";
 import settingsIcon from "../assets/settings.svg";
+import robotWhite from "../assets/robot-white.svg";
+import cross from "../assets/cross.svg";
 import {Link} from "react-router-dom";  
 
 export default function Services() {
@@ -35,7 +37,7 @@ export default function Services() {
                     <li>FAQ Handling</li>
                     <li>CRM Integration</li>
                 </ul>
-            <Link to ="/contact"><button className="explore-services active services-button">Explore Chatbots &#8594</button></Link>    
+            <Link to ="/contact"><button className="explore-services active services-button">Explore Chatbots →</button></Link>    
             </div>
              </div>
              <div className="ai-service">
@@ -55,7 +57,7 @@ export default function Services() {
                     <li>Data Science & Analytics</li>
                     <li>Deployment & Ongoing Support</li>
                 </ul>
-               <Link to ="/contact"><button className="explore-services active services-button">Get Custom Quote &#8594</button></Link> 
+               <Link to ="/contact"><button className="explore-services active services-button">Get Custom Quote →</button></Link> 
             </div>
             </div>
              <div className="ai-service">
@@ -75,7 +77,7 @@ export default function Services() {
                     <li>Automated Reporting</li>
                     <li>Integration with Existing Tools</li>
                 </ul>
-               <Link to="/contact"><button className="explore-services active services-button">Discuss Automation &#8594</button></Link> 
+               <Link to="/contact"><button className="explore-services active services-button">Discuss Automation →</button></Link> 
             </div>
             </div>
               <div className="ai-service">
@@ -95,7 +97,7 @@ export default function Services() {
                     <li>Proactive Customer Engagement</li>
                     <li>Data-driven Decision Making</li>
                 </ul>
-             <Link to ="/contact">   <button className="explore-services active services-button">Deploy an Agent &#8594</button></Link>
+             <Link to ="/contact">   <button className="explore-services active services-button">Deploy an Agent →</button></Link>
             </div>
             </div>
         </div>
@@ -104,8 +106,16 @@ export default function Services() {
             <img src={settingsIcon} alt="" width="50"/>
             <h1>Ready to Integrate AI?</h1>
             <p>Whether you're looking to implement a specific solution or explore a custom AI strategy, our team is here to guide you.</p>
-            <a href="https://calendar.app.google/2cHLdLWbzSeaVJGd7"><button className="get-consultation">Schedule A Free Consultation &#8594</button></a>
+            <a href="https://calendar.app.google/2cHLdLWbzSeaVJGd7"><button className="get-consultation">Schedule A Free Consultation →</button></a>
         </div>
+         <footer>
+                <p>© 2025 Lekronis. All rights reserved.</p>
+                <button id="chat-toggle-button" className="chat-toggle">
+                  <img id="chat-icon-open" src={robotWhite} alt="chat open" hidden />
+                  <img id="chat-icon-close" src={cross} alt="chat close" hidden />
+                </button>
+                {/* Chatbot will later be handled with React state/hooks */}
+              </footer>
         </div>
     )
 }
